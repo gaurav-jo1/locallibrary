@@ -14,7 +14,7 @@ const Home = () => {
         <h1>Local Library Home</h1>
         <p>
           Welcome to LocalLibrary, a website developed by{" "}
-          <em>Gaurav Joshi</em>!
+          <em>Gaurav Joshi </em>!
         </p>
         <h2>Dynamic content</h2>
         <p>The library has the following record counts:</p>
