@@ -1,10 +1,19 @@
 import React from "react";
 import Navigation from "../components/Navigation";
+import { useQuery } from "@tanstack/react-query";
 
 // Styles
 import "../styles/Home.scss";
 
 const Home = () => {
+  const { data: libraries, isLoading, isError,} = useQuery(["libraries"], () => {
+    return fetch("http://127.0.0.1:8000/catalog/").then((t) => t.json());
+  });
+
+  if (isLoading) return <h1>Loading...</h1>;
+
+  if (isError) return <h1>Error with request</h1>
+
   return (
     <div className="Home_container">
       <div>
@@ -18,12 +27,12 @@ const Home = () => {
         </p>
         <h2>Dynamic content</h2>
         <p>The library has the following record counts:</p>
-
+        {console.log(libraries)}
         <ul> 
-          <li><strong>Books: </strong></li>
-          <li><strong>Copies: </strong></li>
-          <li><strong>Copies available: </strong></li>
-          <li><strong>Authors: </strong></li>
+          <li><strong>Books: {libraries.num_books}  </strong></li>
+          <li><strong>Copies: {libraries.num_instances}</strong></li>
+          <li><strong>Copies available: {libraries.num_instances_available}</strong></li>
+          <li><strong>Authors: {libraries.num_authors}</strong></li>
         </ul>
       </div>
     </div>

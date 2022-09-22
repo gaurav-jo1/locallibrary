@@ -1,7 +1,7 @@
 from dataclasses import field, fields
 from pyexpat import model
 from statistics import mode
-from models import  Book, Author, BookInstance, Genre
+from .models import  Book, Author, BookInstance, Genre
 from rest_framework import serializers
 
 class BookSerializer(serializers.ModelSerializer):
