@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views import generic
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -9,7 +10,6 @@ from .serializers import BookSerializer, AuthorSerializer, BookInstanceSerialize
 
 @api_view(['GET'])
 def index(request):
-    """View function for home page of site."""
 
     # Generate counts of some of the main objects
     num_books = Book.objects.all().count()
@@ -31,3 +31,19 @@ def index(request):
 
     # Render the HTML template index.html with the data in the context variable
     return Response(context)
+
+@api_view(['GET'])
+def books(request):
+    books_list = Book.objects.all()
+    serializer = BookSerializer(books_list, many=True)
+
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def authors(request):
+    author_list = Author.objects.all()
+    serializer = AuthorSerializer(author_list, many=True)
+
+    return Response(serializer.data)
+

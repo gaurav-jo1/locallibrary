@@ -27,12 +27,11 @@ const Home = () => {
         </p>
         <h2>Dynamic content</h2>
         <p>The library has the following record counts:</p>
-        {console.log(libraries)}
         <ul> 
-          <li><strong>Books: {libraries.num_books}  </strong></li>
-          <li><strong>Copies: {libraries.num_instances}</strong></li>
-          <li><strong>Copies available: {libraries.num_instances_available}</strong></li>
-          <li><strong>Authors: {libraries.num_authors}</strong></li>
+          <li><strong>Books: &nbsp;<p> {libraries.num_books}  </p></strong></li>
+          <li><strong>Copies: &nbsp;<p> {libraries.num_instances}</p></strong></li>
+          <li><strong>Copies available: &nbsp;<p> {libraries.num_instances_available}</p></strong></li>
+          <li><strong>Authors: &nbsp;<p> {libraries.num_authors}</p></strong></li>
         </ul>
       </div>
     </div>

@@ -14,5 +14,14 @@
 
   ul {
     padding: 20px 40px;
+
+    li {
+      strong {
+        display: flex;
+        p {
+          margin-top: 0;
+        }
+      }
+    }
   }
 }
