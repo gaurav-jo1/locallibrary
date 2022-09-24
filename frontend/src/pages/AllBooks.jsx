@@ -2,18 +2,22 @@ import React from 'react'
 import Navigation from '../components/Navigation'
 import { useQuery } from "@tanstack/react-query";
 import { Link } from 'react-router-dom';
+import ReactLoading from 'react-loading';
+
 
 // Styles
 import "../styles/AllBooks.scss";
 
 const AllBooks = () => {
+
   const { data: books, isLoading, isError,} = useQuery(["books"], () => {
     return fetch("http://127.0.0.1:8000/catalog/books/").then((t) => t.json());
   });
 
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading) return <div className="Loading" ><ReactLoading /></div>;
 
   if (isError) return <h1>Error with request</h1>
+
 
   return (
     <div className='AllBooks_container'>
@@ -27,11 +31,10 @@ const AllBooks = () => {
             return (
               <div key={book.id}>
                 <ul>
-                  <Link to="/">
+                  <Link to={"/Book/" + book.id}>
                     <li>{book.title}</li>
                   </Link>
                   <p>({book.author})</p>
-                  {/* <p>{book.genre[0].name}</p> */}
                 </ul>
               </div>
             )

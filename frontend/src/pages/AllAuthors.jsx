@@ -2,6 +2,8 @@ import React from "react";
 import Navigation from "../components/Navigation";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from 'react-router-dom';
+import ReactLoading from 'react-loading';
+
 
 
 // Styles
@@ -12,7 +14,7 @@ const AllAuthors = () => {
     return fetch("http://127.0.0.1:8000/catalog/authors/").then((t) => t.json());
   });
 
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading) return <div className="Loading" ><ReactLoading /></div>;
 
   if (isError) return <h1>Error with request</h1>
 

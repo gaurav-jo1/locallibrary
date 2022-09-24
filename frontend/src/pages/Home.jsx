@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "../components/Navigation";
 import { useQuery } from "@tanstack/react-query";
+import ReactLoading from 'react-loading';
 
 // Styles
 import "../styles/Home.scss";
@@ -10,7 +11,7 @@ const Home = () => {
     return fetch("http://127.0.0.1:8000/catalog/").then((t) => t.json());
   });
 
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading) return <div className="Loading" ><ReactLoading /></div>;
 
   if (isError) return <h1>Error with request</h1>
 

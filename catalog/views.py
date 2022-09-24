@@ -36,7 +36,6 @@ def index(request):
 def books(request):
     books_list = Book.objects.all()
     serializer = BookSerializer(books_list, many=True)
-
     return Response(serializer.data)
 
 
@@ -47,3 +46,8 @@ def authors(request):
 
     return Response(serializer.data)
 
+@api_view(['GET'])
+def book_id(request, pk):
+    task = Book.objects.get(id=pk)
+    serializer = BookSerializer(task, many=False)
+    return Response(serializer.data)
