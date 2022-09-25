@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import AllBooks from "./pages/AllBooks";
 import AllAuthors from "./pages/AllAuthors";
 import Book from "./pages/Book";
+import Author from "./pages/Author";
 
 // Styling
 import "./App.scss"
@@ -17,6 +18,7 @@ function App() {
         <Route path="/Books" element={<AllBooks />} />
         <Route path="/Authors" element={<AllAuthors />} />
         <Route path="/Book/:id" element={<Book />} />
+        <Route path="/Author/:id" element={<Author />} />
       </Routes>
     </div>
   );

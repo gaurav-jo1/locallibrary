@@ -1,3 +1,19 @@
 .AllAuthors_container {
   display: flex;
 }
+
+.AllAuthor_author-name {
+  ul {
+    margin-top: 10px;
+    display: flex;
+  }
+
+  p {
+    font-size: 20px;
+    color: gray;
+  }
+
+  .author_dob {
+    color: white;
+  }
+}

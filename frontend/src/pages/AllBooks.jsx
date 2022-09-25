@@ -29,12 +29,12 @@ const AllBooks = () => {
         <div>
           {books.map((book) => {
             return (
-              <div key={book.id}>
+              <div className='book_detail-container' key={book.id}>
                 <ul>
                   <Link to={"/Book/" + book.id}>
-                    <li>{book.title}</li>
+                    <li><p>{book.title}&nbsp;</p></li>
                   </Link>
-                  <p>({book.author})</p>
+                  <p className='book_author-name'>&nbsp;({book.author})</p>
                 </ul>
               </div>
             )

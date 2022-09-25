@@ -1,19 +1,30 @@
 .Book_container {
-    display: flex;
+  display: flex;
 }
 
 .Book_div {
-    h1 {
-        margin-top: 10px;
-      }
-    padding: 0 20px;
-    strong {
-        display: flex;
-        margin-top: 10px;
-        padding-right: 150px;
+  h1 {
+    margin-top: 10px;
+    display: flex;
 
-        p {
-            color: aqua;
-        }
+    p {
+      color: aqua;
     }
+  }
+  padding: 0 20px;
+  strong {
+    display: flex;
+    margin-top: 10px;
+
+    p {
+      color: aqua;
+    }
+  }
+  h2 {
+    margin: 10px 0;
+  }
+  hr {
+    margin: 10px 0;
+    border-top: none;
+  }
 }

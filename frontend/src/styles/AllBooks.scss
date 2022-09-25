@@ -1,3 +1,23 @@
 .AllBooks_container {
   display: flex;
 }
+
+.book_detail-container {
+  ul {
+    display: flex;
+    margin-top: 10px;
+
+    li {
+      p {
+        font-size: 20px;
+        color: rgb(214, 151, 151);
+      }
+    }
+  }
+
+  .book_author-name {
+    margin-top: 3px;
+  }
+
+
+}

@@ -32,22 +32,31 @@ def index(request):
     # Render the HTML template index.html with the data in the context variable
     return Response(context)
 
+
 @api_view(['GET'])
-def books(request):
+def BookListView(request):
     books_list = Book.objects.all()
     serializer = BookSerializer(books_list, many=True)
     return Response(serializer.data)
 
 
 @api_view(['GET'])
-def authors(request):
+def AuthorListView(request):
     author_list = Author.objects.all()
     serializer = AuthorSerializer(author_list, many=True)
 
     return Response(serializer.data)
 
+
 @api_view(['GET'])
-def book_id(request, pk):
+def BookDetailView(request, pk):
     task = Book.objects.get(id=pk)
     serializer = BookSerializer(task, many=False)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def AuthorDetailView(request, pk):
+    task = Author.objects.get(id=pk)
+    serializer = AuthorSerializer(task, many=False)
     return Response(serializer.data)

@@ -4,8 +4,6 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from 'react-router-dom';
 import ReactLoading from 'react-loading';
 
-
-
 // Styles
 import "../styles/AllAuthors.scss";
 
@@ -17,7 +15,7 @@ const AllAuthors = () => {
   if (isLoading) return <div className="Loading" ><ReactLoading /></div>;
 
   if (isError) return <h1>Error with request</h1>
-
+  console.log(authors)
   return (
     <div className="AllAuthors_container">
       <div>
@@ -28,11 +26,12 @@ const AllAuthors = () => {
         <div>
           {authors.map((author) => {
             return (
-              <div key={author.id}>
+              <div className="AllAuthor_author-name" key={author.id}>
                 <ul>
-                  <Link to="/">
-                    <li>{author.first_name} {author.last_name}</li>
+                  <Link to={"/Author/" + author.id}>
+                    <li><p>{author.first_name} {author.last_name}</p> </li>
                   </Link>
+                  <p className="author_dob"> &nbsp; ({author.date_of_birth} - <i>to</i>  {author.date_of_death ? author.date_of_death : " ~"})</p>
                 </ul>
               </div>
             )
