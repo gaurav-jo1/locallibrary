@@ -1,7 +1,3 @@
-from asyncore import read
-from dataclasses import field, fields
-from pyexpat import model
-from statistics import mode
 from .models import  Book, Author, BookInstance, Genre
 from rest_framework import serializers
 
@@ -13,7 +9,7 @@ class AuthorSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class BookInstanceSerializer(serializers.ModelSerializer):
-
+    book = serializers.StringRelatedField()
     class Meta:
         model = BookInstance
         fields = '__all__'

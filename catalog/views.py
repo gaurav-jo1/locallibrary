@@ -1,6 +1,3 @@
-from django.shortcuts import render
-from django.views import generic
-
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
@@ -50,13 +47,19 @@ def AuthorListView(request):
 
 @api_view(['GET'])
 def BookDetailView(request, pk):
-    task = Book.objects.get(id=pk)
-    serializer = BookSerializer(task, many=False)
+    book_detail = Book.objects.get(id=pk)
+    serializer = BookSerializer(book_detail, many=False)
     return Response(serializer.data)
 
 
 @api_view(['GET'])
 def AuthorDetailView(request, pk):
-    task = Author.objects.get(id=pk)
-    serializer = AuthorSerializer(task, many=False)
+    author_detail = Author.objects.get(id=pk)
+    serializer = AuthorSerializer(author_detail, many=False)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def BookInstances(request):
+    book_instances = BookInstance.objects.all()
+    serializer = BookInstanceSerializer(book_instances, many=True)
     return Response(serializer.data)

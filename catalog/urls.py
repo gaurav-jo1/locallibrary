@@ -7,4 +7,5 @@ urlpatterns = [
     path('book/<str:pk>/', views.BookDetailView, name='BookDetailView'),
     path('authors/', views.AuthorListView, name='AuthorListView'),
     path('author/<str:pk>/', views.AuthorDetailView, name='AuthorDetailView'),
+    path('instance/', views.BookInstances, name='Instance'),
 ]
