@@ -15,7 +15,6 @@ const AllAuthors = () => {
   if (isLoading) return <div className="Loading" ><ReactLoading /></div>;
 
   if (isError) return <h1>Error with request</h1>
-  console.log(authors)
   return (
     <div className="AllAuthors_container">
       <div>

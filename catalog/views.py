@@ -51,12 +51,18 @@ def BookDetailView(request, pk):
     serializer = BookSerializer(book_detail, many=False)
     return Response(serializer.data)
 
+@api_view(['GET'])
+def BookSpecificView(request, author_id):
+    author_books = Book.objects.filter(author = author_id)
+    serializer = BookSerializer(author_books, many=True)
+    return Response(serializer.data)
 
 @api_view(['GET'])
 def AuthorDetailView(request, pk):
     author_detail = Author.objects.get(id=pk)
     serializer = AuthorSerializer(author_detail, many=False)
     return Response(serializer.data)
+
 
 @api_view(['GET'])
 def BookInstances(request):

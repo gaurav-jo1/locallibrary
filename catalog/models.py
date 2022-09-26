@@ -25,6 +25,9 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
+    def display_id(self):
+        return self.id
+
     def get_absolute_url(self):
         return reverse("book_detail", args=[str(self.id)])
 
