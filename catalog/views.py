@@ -69,3 +69,9 @@ def BookInstances(request):
     book_instances = BookInstance.objects.all()
     serializer = BookInstanceSerializer(book_instances, many=True)
     return Response(serializer.data)
+
+@api_view(['GET'])
+def BookInstanceSpecific(request, book_id):
+    books_instance = BookInstance.objects.filter(book = book_id)
+    serializer = BookInstanceSerializer(books_instance, many=True)
+    return Response(serializer.data)

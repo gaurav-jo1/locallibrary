@@ -30,7 +30,7 @@ const AllAuthors = () => {
                   <Link to={"/Author/" + author.id}>
                     <li><p>{author.first_name} {author.last_name}</p> </li>
                   </Link>
-                  <p className="author_dob"> &nbsp; ({author.date_of_birth} - <i>to</i>  {author.date_of_death ? author.date_of_death : " ~"})</p>
+                  <p className="author_dob"> &nbsp; ({author.date_of_birth} - <i style={{color: "red"}}>to</i>  {author.date_of_death ?  "💀" + author.date_of_death : " 😃"})</p>
                 </ul>
               </div>
             )

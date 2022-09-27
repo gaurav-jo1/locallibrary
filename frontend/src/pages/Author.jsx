@@ -31,14 +31,16 @@ const Author = () => {
       </div>
       <div className='Author_div'>
         <h1>Author: {author.first_name} {author.last_name}</h1>
-        <p>{author.date_of_birth} - {author.date_of_death}</p>
+        <p>{author.date_of_birth} <i style={{color: "red"}}>to</i> {author.date_of_death ?  "💀"  + author.date_of_death : '😃'}</p>
         <h2>Books</h2>
         <div>
           {authorBooks?.map((authorBook) => {
             return (
-              <div key={authorBook.id}>
+              <div className='author_list-container' key={authorBook.id}>
                 <ul>
-                  <Link to={"/Book/" + authorBook.id}> <li>{authorBook.title}</li></Link>
+                  <Link to={"/Book/" + authorBook.id}>
+                    <li><p>{authorBook.title}</p></li>
+                  </Link>
                 </ul>
               </div>
             )

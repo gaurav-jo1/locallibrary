@@ -44,13 +44,13 @@ class BookInstance(models.Model):
     due_back = models.DateField(null=True, blank=True)
 
     LOAN_STATUS = (
-        ('m', 'Maintenance'),
-        ('o', 'On loan'),
-        ('a', 'Available'),
-        ('r', 'Reserved'),
+        ('Maintenance', 'Maintenance'),
+        ('Loan', 'On loan'),
+        ('Available', 'Available'),
+        ('Reserved', 'Reserved'),
     )
 
-    status = models.CharField(max_length=1, choices=LOAN_STATUS, blank=True, default='m', help_text='Book availability',)
+    status = models.CharField(max_length=20, choices=LOAN_STATUS, blank=True, default='Maintenance', help_text='Book availability',)
 
     class Meta:
         ordering = ['due_back']
