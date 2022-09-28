@@ -10,4 +10,5 @@ urlpatterns = [
     path('author/books/<str:author_id>/', views.BookSpecificView, name='BookSpecificView'),
     path('instance/', views.BookInstances, name='Instance'),
     path('book/instance/<str:book_id>/', views.BookInstanceSpecific, name='BookInstanceSpecific'),
+    path('ApiBooksListView/', views.ApiBooksListView.as_view(), name='EventNewsItems'),
 ]

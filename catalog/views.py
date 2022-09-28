@@ -1,9 +1,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-
 from .models import Book, Author, BookInstance, Genre
 from .serializers import BookSerializer, AuthorSerializer, BookInstanceSerializer, GenreSerializer
-
 
 @api_view(['GET'])
 def index(request):
@@ -14,7 +12,7 @@ def index(request):
     num_instances = BookInstance.objects.all().count()
     # Available books (status = 'a')
     num_instances_available = BookInstance.objects.filter(
-        status__exact='a').count()
+        status__exact='Available').count()
 
     # # The 'all()' is implied by default.
     num_authors = Author.objects.count()
@@ -75,3 +73,16 @@ def BookInstanceSpecific(request, book_id):
     books_instance = BookInstance.objects.filter(book = book_id)
     serializer = BookInstanceSerializer(books_instance, many=True)
     return Response(serializer.data)
+
+from rest_framework.views import APIView
+from rest_framework.pagination import PageNumberPagination
+from rest_framework.generics import ListAPIView
+
+class StandardResultsSetPagination(PageNumberPagination):
+    page_size = 5
+    page_size_query_param = 'page_size'
+    max_page_size = 4
+class ApiBooksListView(ListAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
+    pagination_class = StandardResultsSetPagination

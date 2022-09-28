@@ -18,6 +18,16 @@
   .book_author-name {
     margin-top: 3px;
   }
+}
 
-
+.book_detail-pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  button {
+    color: white;
+    border: 1px solid yellow;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
 }
