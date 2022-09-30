@@ -7,7 +7,7 @@ import ReactLoading from 'react-loading';
 // Styles
 import "../styles/AllAuthors.scss";
 
-const AllAuthors = () => {
+const AllAuthors = ({theme}) => {
   const { data: authors, isLoading, isError,} = useQuery(["authors"], () => {
     return fetch("http://127.0.0.1:8000/catalog/authors/").then((t) => t.json());
   });
@@ -25,7 +25,7 @@ const AllAuthors = () => {
         <div>
           {authors.map((author) => {
             return (
-              <div className="AllAuthor_author-name" key={author.id}>
+              <div className={`AllAuthor_author-name ${theme}`} key={author.id}>
                 <ul>
                   <Link to={"/Author/" + author.id}>
                     <li><p>{author.first_name} {author.last_name}</p> </li>

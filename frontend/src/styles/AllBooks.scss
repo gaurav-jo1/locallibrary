@@ -2,6 +2,15 @@
   display: flex;
 }
 
+.light {
+  .books_title_p {
+    color: rgb(58, 54, 54);
+  }
+  p {
+    color: rgb(58, 54, 54);
+  }
+}
+
 .book_detail-container {
   ul {
     display: flex;

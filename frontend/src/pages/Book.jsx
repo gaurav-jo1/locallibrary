@@ -7,7 +7,7 @@ import ReactLoading from "react-loading";
 // styling
 import "../styles/Book.scss";
 
-const Book = () => {
+const Book = ({theme}) => {
   const params = useParams();
   const { data: book, isLoading, isError, } = useQuery(["book"], () => {
     return fetch(`http://127.0.0.1:8000/catalog/book/${params.id}`).then((t) =>t.json()
@@ -38,7 +38,7 @@ const Book = () => {
       <div>
         <Navigation />
       </div>
-      <div className="Book_div">
+      <div className={`Book_div ${theme}`}>
         <div>
           <h1> Book :&nbsp; <p>{book.title}</p></h1>
           <strong> Author:&nbsp; <p>{book.author}</p></strong>
