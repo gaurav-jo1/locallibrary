@@ -11,7 +11,7 @@ import "./App.scss";
 import Header from "./components/Header";
 
 function App() {
-  // Dark Mode
+  // Dark Mode (ContextAPI can also be used)
   const [theme, setTheme] = useState("dark");
   const toggleTheme = () => {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
@@ -24,7 +24,7 @@ function App() {
         <Route path="/" element={<Home theme={theme} />} />
         <Route path="/Books" element={<AllBooks theme={theme} />} />
         <Route path="/Authors" element={<AllAuthors theme={theme} />} />
-        <Route path="/Book/:id" element={<Book theme={theme}/>} />
+        <Route path="/Book/:id" element={<Book theme={theme} />} />
         <Route path="/Author/:id" element={<Author />} />
       </Routes>
     </div>
