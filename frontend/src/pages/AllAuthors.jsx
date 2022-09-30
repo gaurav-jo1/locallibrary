@@ -7,6 +7,7 @@ import ReactLoading from "react-loading";
 // Styles
 import "../styles/AllAuthors.scss";
 
+// Getting request
 const AllAuthors = ({ theme }) => {
   const { data: authors, isLoading, isError, } = useQuery(["authors"], () => {
     return fetch("http://127.0.0.1:8000/catalog/authors/").then((t) => t.json());

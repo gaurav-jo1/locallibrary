@@ -6,6 +6,7 @@ import ReactLoading from 'react-loading';
 // Styles
 import "../styles/Home.scss";
 
+// Getting request 
 const Home = ({theme}) => {
   const { data: libraries, isLoading, isError,} = useQuery(["libraries"], () => {
     return fetch("http://127.0.0.1:8000/catalog/").then((t) => t.json());
@@ -17,10 +18,8 @@ const Home = ({theme}) => {
 
   return (
     <div className="Home_container">
+      <div> <Navigation /> </div>
       <div>
-        <Navigation />
-      </div>
-      <div className={`Home_div ${theme}`}>
         <h1>Local Library Home</h1>
         <p>
           Welcome to LocalLibrary, a website developed by{" "}

@@ -9,6 +9,7 @@ import ReactLoading from "react-loading";
 import "../styles/AllBooks.scss";
 import { useState } from "react";
 
+// Getting request
 const AllBooks = ({ theme }) => {
   const [id, setId] = useState("http://127.0.0.1:8000/catalog/ApiBooksListView/");
 

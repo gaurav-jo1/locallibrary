@@ -8,6 +8,7 @@ import ReactLoading from "react-loading";
 // styling
 import "../styles/Author.scss";
 
+// Getting request
 const Author = () => {
   const params = useParams();
 

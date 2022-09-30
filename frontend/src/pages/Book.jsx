@@ -7,6 +7,7 @@ import ReactLoading from "react-loading";
 // styling
 import "../styles/Book.scss";
 
+// Getting request
 const Book = ({theme}) => {
   const params = useParams();
   const { data: book, isLoading, isError, } = useQuery(["book"], () => {
@@ -51,7 +52,7 @@ const Book = ({theme}) => {
           <div>
             {bookInstances?.map((bookInstance) => {
               return (
-                <div key={bookInstance.id}>
+                <div className={`bookInstance_container ${theme}`} key={bookInstance.id}>
                   <hr />
                   <strong>Copy Status: &nbsp; {status_color(bookInstance.status)} </strong>
                   {bookInstance.due_back && <strong>Due to returned: &nbsp; <p>{bookInstance.due_back}</p></strong>}
