@@ -19,7 +19,7 @@ const Home = ({theme}) => {
   return (
     <div className="Home_container">
       <div> <Navigation /> </div>
-      <div>
+      <div className="Home_div">
         <h1>Local Library Home</h1>
         <p>
           Welcome to LocalLibrary, a website developed by{" "}
