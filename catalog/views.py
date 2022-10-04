@@ -2,6 +2,11 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Book, Author, BookInstance, Genre
 from .serializers import BookSerializer, AuthorSerializer, BookInstanceSerializer, GenreSerializer
+from django.shortcuts import render
+
+def front(request):
+    context = { }
+    return render(request, "index.html", context)
 
 @api_view(['GET'])
 def index(request):

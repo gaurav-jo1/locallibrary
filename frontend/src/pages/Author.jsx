@@ -13,11 +13,11 @@ const Author = () => {
   const params = useParams();
 
   const { data: author, isLoading, isError, } = useQuery(["author"], () => {
-    return fetch(`http://127.0.0.1:8000/catalog/author/${params.id}`).then( (t) => t.json());
+    return fetch(`http://127.0.0.1:8000/author/${params.id}`).then( (t) => t.json());
   });
 
   const { data: authorBooks } = useQuery(["authorBooks"], () => {
-    return fetch(`http://127.0.0.1:8000/catalog/author/books/${params.id}`).then((t) => t.json());
+    return fetch(`http://127.0.0.1:8000/author/books/${params.id}`).then((t) => t.json());
   });
 
   if (isLoading)

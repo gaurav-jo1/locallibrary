@@ -9,7 +9,7 @@ import "../styles/Home.scss";
 // Getting request 
 const Home = ({theme}) => {
   const { data: libraries, isLoading, isError,} = useQuery(["libraries"], () => {
-    return fetch("http://127.0.0.1:8000/catalog/").then((t) => t.json());
+    return fetch("http://127.0.0.1:8000/detail").then((t) => t.json());
   });
 
   if (isLoading) return <div className="Loading" ><ReactLoading /></div>;

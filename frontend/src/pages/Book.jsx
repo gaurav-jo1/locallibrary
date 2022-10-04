@@ -11,11 +11,11 @@ import "../styles/Book.scss";
 const Book = ({theme}) => {
   const params = useParams();
   const { data: book, isLoading, isError, } = useQuery(["book"], () => {
-    return fetch(`http://127.0.0.1:8000/catalog/book/${params.id}`).then((t) =>t.json()
+    return fetch(`http://127.0.0.1:8000/book/${params.id}`).then((t) =>t.json()
     );
   });
   const { data: bookInstances } = useQuery(["bookInstance"], () => {
-    return fetch(`http://127.0.0.1:8000/catalog/book/instance/${params.id}/`).then((t) =>t.json()
+    return fetch(`http://127.0.0.1:8000/book/instance/${params.id}/`).then((t) =>t.json()
     );
   });
 

@@ -11,7 +11,7 @@ import { useState } from "react";
 
 // Getting request
 const AllBooks = ({ theme }) => {
-  const [id, setId] = useState("http://127.0.0.1:8000/catalog/ApiBooksListView/");
+  const [id, setId] = useState("http://127.0.0.1:8000/ApiBooksListView/");
 
   const { data: books, isLoading, isError, } = useQuery(["books", id], () => {
     return fetch(id).then((t) => t.json());
