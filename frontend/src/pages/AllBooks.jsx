@@ -43,11 +43,11 @@ const AllBooks = ({ theme }) => {
         </div>
         <div className="book_detail-pagination">
           {books.previous ? ( <button onClick={() => setId(books.previous)}>Previos</button>) : (
-            <button style={{ background: "rgba(135, 207, 235, 0.5)", border: "none" }}>
+            <button style={{ background: "rgba(135, 207, 235, 0.5)", border: "1px solid black" }}>
               Previos
             </button> )}
           {books.next ? (<button onClick={() => setId(books.next)}>Next</button>) : (
-            <button style={{ background: "rgba(135, 207, 235, 0.5)", border: "none" }}>
+            <button style={{ background: "rgba(135, 207, 235, 0.5)", border: "1px solid black" }}>
               Next
             </button>
           )}
