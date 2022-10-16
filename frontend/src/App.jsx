@@ -1,20 +1,20 @@
-import React from "react";
+import React,{useContext} from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import AllBooks from "./pages/AllBooks";
 import AllAuthors from "./pages/AllAuthors";
 import Book from "./pages/Book";
 import Author from "./pages/Author";
-import ThemeContextProvider from "./Context/ThemeContextProvider";
 
 // Styling
 import "./App.scss";
 import Header from "./components/Header";
+import { ThemeContext } from "./Context/ThemeContextProvider";
 
 function App() {
+  const {theme} = useContext(ThemeContext)
   return (
-    <ThemeContextProvider>
-      <div className="app">
+      <div className={`App_${theme}`}>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -24,7 +24,6 @@ function App() {
           <Route path="/Author/:id" element={<Author />} />
         </Routes>
       </div>
-    </ThemeContextProvider>
   );
 }
 
