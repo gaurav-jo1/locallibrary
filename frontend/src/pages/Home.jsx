@@ -1,13 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import Navigation from "../components/Navigation";
 import { useQuery } from "@tanstack/react-query";
 import ReactLoading from 'react-loading';
 
 // Styles
 import "../styles/Home.scss";
+import { ThemeContext } from "../Context/ThemeContextProvider";
 
 // Getting request 
-const Home = ({theme}) => {
+const Home = () => {
+  const {theme} = useContext(ThemeContext)
   const { data: libraries, isLoading, isError,} = useQuery(["libraries"], () => {
     return fetch("http://127.0.0.1:8000/detail").then((t) => t.json());
   });
@@ -17,7 +19,7 @@ const Home = ({theme}) => {
   if (isError) return <h1>Error with request</h1>
 
   return (
-    <div className="Home_container">
+    <div className={`Home_container_${theme}`}>
       <div> <Navigation /> </div>
       <div className="Home_div">
         <h1>Local Library Home</h1>

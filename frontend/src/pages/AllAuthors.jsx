@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import Navigation from "../components/Navigation";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
@@ -6,9 +6,11 @@ import ReactLoading from "react-loading";
 
 // Styles
 import "../styles/AllAuthors.scss";
+import { ThemeContext } from "../Context/ThemeContextProvider";
 
 // Getting request
-const AllAuthors = ({ theme }) => {
+const AllAuthors = () => {
+  const {theme} = useContext(ThemeContext)
   const { data: authors, isLoading, isError, } = useQuery(["authors"], () => {
     return fetch("http://127.0.0.1:8000/authors/").then((t) => t.json());
   });
@@ -19,7 +21,7 @@ const AllAuthors = ({ theme }) => {
   if (isError) return <h1>Error with request</h1>;
 
   return (
-    <div className="AllAuthors_container">
+    <div className={`AllAuthors_container_${theme}`}>
       <div> <Navigation /> </div>
       <div>
         <h1>All Authors</h1>

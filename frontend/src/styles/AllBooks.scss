@@ -1,5 +1,15 @@
-.AllBooks_container {
+.AllBooks_container_dark {
   display: flex;
+  color: white;
+  background: rgb(2, 1, 24);
+  padding: 20px 20px;
+}
+
+.AllBooks_container_light {
+  display: flex;
+  color: rgb(0, 0, 0);
+  background: #bdbdbd;
+  padding: 20px 20px;
 }
 
 .light {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Navigation from "../components/Navigation";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
@@ -8,9 +8,12 @@ import ReactLoading from "react-loading";
 // Styles
 import "../styles/AllBooks.scss";
 import { useState } from "react";
+import { ThemeContext } from "../Context/ThemeContextProvider";
 
 // Getting request
-const AllBooks = ({ theme }) => {
+const AllBooks = () => {
+  const {theme} = useContext(ThemeContext)
+
   const [id, setId] = useState("http://127.0.0.1:8000/ApiBooksListView/");
 
   const { data: books, isLoading, isError, } = useQuery(["books", id], () => {
@@ -23,7 +26,7 @@ const AllBooks = ({ theme }) => {
   if (isError) return <h1>Error with request</h1>;
 
   return (
-    <div className="AllBooks_container">
+    <div className={`AllBooks_container_${theme}`}>
       <div> <Navigation /> </div>
       <div>
         <h1>All Books</h1>

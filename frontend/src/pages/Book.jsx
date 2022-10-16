@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Navigation from "../components/Navigation";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
@@ -6,10 +6,12 @@ import ReactLoading from "react-loading";
 
 // styling
 import "../styles/Book.scss";
+import { ThemeContext } from "../Context/ThemeContextProvider";
 
 // Getting request
-const Book = ({theme}) => {
+const Book = () => {
   const params = useParams();
+  const {theme} = useContext(ThemeContext)
   const { data: book, isLoading, isError, } = useQuery(["book"], () => {
     return fetch(`http://127.0.0.1:8000/book/${params.id}`).then((t) =>t.json()
     );
@@ -35,7 +37,7 @@ const Book = ({theme}) => {
   }
 
   return (
-    <div className="Book_container">
+    <div className={`Book_container_${theme}`}>
       <div>
         <Navigation />
       </div>

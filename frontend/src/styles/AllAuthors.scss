@@ -1,5 +1,17 @@
-.AllAuthors_container {
+.AllAuthors_container_dark {
   display: flex;
+  height: 100%;
+  color: white;
+  background: rgb(2, 1, 24);
+  padding: 20px 20px;
+}
+
+.AllAuthors_container_light {
+  display: flex;
+  height: 100%;
+  background: #bdbdbd;
+  color: rgb(0, 0, 0);
+  padding: 20px 20px;
 }
 
 .AllAuthor_author-name {
