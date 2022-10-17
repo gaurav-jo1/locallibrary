@@ -39,13 +39,6 @@ def index(request):
 
 
 @api_view(['GET'])
-def BookListView(request):
-    books_list = Book.objects.all()
-    serializer = BookSerializer(books_list, many=True)
-    return Response(serializer.data)
-
-
-@api_view(['GET'])
 def AuthorListView(request):
     author_list = Author.objects.all()
     serializer = AuthorSerializer(author_list, many=True)
