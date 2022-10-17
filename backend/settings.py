@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # apps
     'catalog',
-    'userProfile'
+    'userProfile',
     # tools
     "corsheaders",
     'rest_framework',
